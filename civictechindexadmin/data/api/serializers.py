@@ -104,7 +104,7 @@ class AddOrganizationSerializer(serializers.Serializer):
         """
         Check that the value is a valid facebook  url
         """
-        if not value.lower().startswith('https://www.facebook.com/'):
+        if 'facebook.com/' not in value.lower():
             raise serializers.ValidationError("Not a valid Facebook URL")
         return value
 
@@ -120,7 +120,7 @@ class AddOrganizationSerializer(serializers.Serializer):
         """
         Check that the value is a valid meetup url
         """
-        if not value.lower().startswith('https://www.meetup.com/'):
+        if 'meetup.com/' not in value.lower():
             raise serializers.ValidationError("Not a valid meetup URL")
         return value
 
